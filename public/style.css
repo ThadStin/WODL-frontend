@@ -1,0 +1,75 @@
+body {
+  margin: auto;
+  background-image: url("http://wallperio.com/data/out/326/photography-backgrounds-free_614272407.jpg");
+  color: white;
+  overflow: auto;
+}
+
+h1 {
+  margin-top: 2%;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+textarea {
+  /* height: 100px;
+  width: 250px; */
+  resize: none;
+  background-color: #d3d9e2;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #FD7837;
+  padding: 12px 20px;
+  margin: 1%;
+  font-weight: bold;
+  margin-bottom: -1.7%;
+}
+
+input[type=text] {
+ background-color: #d3d9e2;
+ color: black;
+ border: none;
+ border-bottom: 2px solid #FD7837;
+ padding: 12px 20px;
+ margin: 1%;
+ font-weight: bold;
+}
+
+.check {
+  height: 20px;
+  width: 20px;
+}
+
+button{
+  color: white;
+  margin: 1%;
+  font-weight: bold;
+}
+
+input {
+  margin: 1%;
+}
+
+span {
+  font-weight: bold;
+}
+
+table {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  text-align: center;
+}
+
+.add {
+  margin-left: 80%
+}
+
+.form {
+  text-align: center;
+}

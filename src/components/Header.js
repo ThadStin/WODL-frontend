@@ -7,17 +7,16 @@ class Header extends Component {
         <div className="title">
           <h1>
             { this.props.currentView === 'allWorkouts'
-            ? 'All Workouts'
-            : 'HERO WODS' }
+            ? 'HERO WODS'
+            : 'Daily Workouts' }
           </h1>
-          <h2>
-            yes, another one...
-          </h2>
+
         </div>
         <ul>
           <li
-          onClick={() => {this.props.handleView('allWorkouts')}}>{this.props.workoutsCount}  workout</li>
-          <li onClick={() => {this.props.handleView('heroWODS')}}>{this.props.heroWODSCount}  Hero WOD</li>
+          onClick={() => {this.props.handleView('allWorkouts')}}>Click to see Hero WODs
+          </li>
+          <li onClick={() => {this.props.handleView('heroWODS')}}>Click to see daily workouts</li>
         </ul>
       </div>
     )
@@ -30,3 +29,5 @@ class Header extends Component {
 
 // export the class
 export default Header
+// {this.props.workoutsCount}
+// {this.props.heroWODSCount}

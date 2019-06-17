@@ -3,9 +3,19 @@ import React, { Component } from 'react'
 class Workout extends Component {
   render () {
     return (
-      <div className="task">
-        <div className="task-item">{this.props.workout.name}
-        </div>
+      <React.Fragment>
+
+      <tr>
+        <td>{this.props.workout.name}</td>
+        <td>{this.props.workout.rounds}</td>
+        <td>{this.props.workout.reps}</td>
+        <td>{this.props.workout.weight}</td>
+        <td>{this.props.workout.time}</td>
+        <td>{this.props.workout.date}</td>
+
+        <td>{this.props.workout.comments}</td>
+      </tr>
+
         <div className="task-actions">
           { this.props.workout.allWorkouts
             ? <i
@@ -23,7 +33,7 @@ class Workout extends Component {
               {this.props.handleDelete(this.props.workout.id, this.props.arrayIndex, this.props.currentArray)}}
           ></i>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }
@@ -33,3 +43,5 @@ class Workout extends Component {
 
 // export the class
 export default Workout
+
+// <td>{this.props.workout.rx}</td>

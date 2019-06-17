@@ -9,9 +9,9 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentView: 'workouts', //vs heroWODS
-      allWorkouts: ['snatch'],
-      heroWODS:['Fran']
+      currentView: 'heroWODS', //vs heroWODS
+      allWorkouts: [],
+      heroWODS:[]
     }
     this.handleView = this.handleView.bind(this)
     this.fetchWorkouts = this.fetchWorkouts.bind(this)
@@ -25,41 +25,41 @@ class App extends Component {
   }
   // ---------- METHODS ------------
   handleView(view) {
-      this.setState({
-        currentView: view
-      })
-    }
+    this.setState({
+      currentView: view
+    })
+  }
 
-    fetchWorkouts() {
-      fetch('http://localhost:3000/workouts/')
-        .then(data => data.json())
-        .then(jData => {
+  fetchWorkouts() {
+    fetch('http://localhost:3000/workouts/')
+      .then(data => data.json())
+      .then(jData => {
         this.sortWorkouts(jData)
-      })
-    }
+    })
+  }
 
-    sortWorkouts(workouts) {
+  sortWorkouts(workouts) {
     let allWorkouts = []
     let heroWODS = []
     workouts.forEach( workout => {
-      if (workout.heroWODS) {
+      if (workout.hero_wod) {
         heroWODS.push(workout)
       } else {
         allWorkouts.push(workout)
       }
     })
-    this.setWorkouts(allWorkouts, heroWODS)
+    this.setWorkouts(heroWODS, allWorkouts)
   }
 
-  setWorkouts(allWorkouts, heroWODS) {
+  setWorkouts(workouts, wods) {
     this.setState({
-      allWorkouts: allWorkouts,
-      heroWODS: heroWODS
+      allWorkouts: workouts,
+      heroWODS: wods
     })
   }
 
   handleCheck(workout, arrayIndex, currentArray) {
-    workout.allWorkouts = !workout.allWorkouts
+    workout.heroWODS = !workout.heroWODS
     fetch('http://localhost:3000/workouts/' + workout.id, {
       body:JSON.stringify(workout),
       method: 'PUT',
@@ -93,7 +93,6 @@ class App extends Component {
     this.setState( prevState => {
       prevState[array].push(workout)
       return {
-        //prevState['todoTasks']  this is what it's referencing
         [array]: prevState[array]
       }
     })
@@ -113,7 +112,7 @@ class App extends Component {
     })
     .then(jData => {
       this.updateArray(jData, 'allWorkouts')
-      this.handleView('workouts')
+      this.handleView('allWorkouts')
     })
     .catch(err => console.log(err))
   }
@@ -136,16 +135,21 @@ class App extends Component {
   }
 
   render() {
+    // console.log('this is state', this.state);
     return (
-      <div>
-        <h1>WODL</h1>
+      <div className="container">
+        <h1>W.O.D.L.</h1>
+        <p>log your wod</p>
+        <Form
+         handleCreateWorkout={this.handleCreateWorkout}
+         
+         />
          <Header
          currentView={this.state.currentView}
          handleView={this.handleView}
          workoutsCount={this.state.allWorkouts.length}
          heroWODSCount={this.state.heroWODS.length}
         />
-
        <WorkoutList
         currentView={this.state.currentView}
         handleView={this.handleView}

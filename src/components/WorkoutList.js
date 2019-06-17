@@ -4,18 +4,22 @@ import Workout from './Workout'
 class WorkoutList extends Component {
   render () {
     return (
-      <div className="workout-list">
-        <table>
+
+        <table className='u-full-width'>
           <thead>
             <tr>
-              <th> </th>
               <th> Workout: </th>
-              <th> : </th>
-              <th> style: </th>
+              <th> Rounds: </th>
+              <th> Reps: </th>
+              <th> Weight: </th>
+              <th> Time: </th>
+              <th> Date: </th>
+
+              <th> Comments: </th>
             </tr>
           </thead>
           <tbody>
-        { this.props.currentView === 'workouts'
+        { this.props.currentView === 'allWorkouts'
           ? <React.Fragment>
             { this.props.allWorkouts.map((workout, index) => {
               return (
@@ -24,7 +28,7 @@ class WorkoutList extends Component {
                     workout={workout}
                     handleCheck={this.props.handleCheck}
                     arrayIndex={index}
-                    currentArray='allworkouts'
+                    currentArray='allWorkouts'
                     handleDelete={this.props.handleDelete}
                   />
                 )
@@ -47,7 +51,7 @@ class WorkoutList extends Component {
           }
           </tbody>
         </table>
-      </div>
+
     )
   }
 }
@@ -56,6 +60,9 @@ class WorkoutList extends Component {
 export default WorkoutList
 
 ///////////////////////////////////////////////////////////////////////////
+// <th> RX: </th>
+// <div className="workout-list">
+// </div>
 // import React, { Component } from 'react'
 // import Workout from './Workout.js'
 //
