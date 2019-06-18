@@ -31,13 +31,13 @@ class App extends Component {
   }
 
   fetchWorkouts() {
-    fetch('https://wodl.herokuapp.com/')
+    fetch('http://localhost:3000/workouts/')
       .then(data => data.json())
       .then(jData => {
         this.sortWorkouts(jData)
     })
   }
-  //   'http://localhost:3000/workouts/'
+  //   ''https://wodl.herokuapp.com/
   sortWorkouts(workouts) {
     let allWorkouts = []
     let heroWODS = []
@@ -57,10 +57,10 @@ class App extends Component {
       heroWODS: wods
     })
   }
-//   'http://localhost:3000/workouts/'
+//   'https://wodl.herokuapp.com/'
   handleCheck(workout, arrayIndex, currentArray) {
     workout.heroWODS = !workout.heroWODS
-    fetch('https://wodl.herokuapp.com/' + workout.id, {
+    fetch('http://localhost:3000/workouts/' + workout.id, {
       body:JSON.stringify(workout),
       method: 'PUT',
       headers: {
@@ -97,9 +97,9 @@ class App extends Component {
       }
     })
   }
-//  'http://localhost:3000/workouts/'
+//  'https://wodl.herokuapp.com/'
   handleCreateWorkout(workout) {
-    fetch('https://wodl.herokuapp.com/', {
+    fetch('http://localhost:3000/workouts/', {
       body: JSON.stringify(workout),
       method: 'POST',
       headers: {
@@ -123,10 +123,10 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  //delete  http://localhost:3000/workouts/  WATCH OUT FOR THE BACK TICKS
+  //delete    https://wodl.herokuapp.com/ WATCH OUT FOR THE BACK TICKS
   handleDelete(workoutId, arrayIndex, currentArray) {
     console.log('this is delete', workoutId, arrayIndex, currentArray)
-    fetch(`https://wodl.herokuapp.com/${workoutId}`, {
+    fetch(`http://localhost:3000/workouts/${workoutId}`, {
       method: 'DELETE'
     })
     .then(data => {
