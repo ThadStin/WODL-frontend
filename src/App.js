@@ -31,13 +31,13 @@ class App extends Component {
   }
 
   fetchWorkouts() {
-    fetch('http://localhost:3000/workouts/')
+    fetch('https://secure-garden-25756.herokuapp.com/')
       .then(data => data.json())
       .then(jData => {
         this.sortWorkouts(jData)
     })
   }
-
+  //   'http://localhost:3000/workouts/'
   sortWorkouts(workouts) {
     let allWorkouts = []
     let heroWODS = []
@@ -57,10 +57,10 @@ class App extends Component {
       heroWODS: wods
     })
   }
-
+//   'http://localhost:3000/workouts/'
   handleCheck(workout, arrayIndex, currentArray) {
     workout.heroWODS = !workout.heroWODS
-    fetch('http://localhost:3000/workouts/' + workout.id, {
+    fetch('https://secure-garden-25756.herokuapp.com/' + workout.id, {
       body:JSON.stringify(workout),
       method: 'PUT',
       headers: {
@@ -97,9 +97,9 @@ class App extends Component {
       }
     })
   }
-
+//  'http://localhost:3000/workouts/'
   handleCreateWorkout(workout) {
-    fetch('http://localhost:3000/workouts/', {
+    fetch('https://secure-garden-25756.herokuapp.com/', {
       body: JSON.stringify(workout),
       method: 'POST',
       headers: {
@@ -123,10 +123,10 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  //delete
+  //delete  http://localhost:3000/workouts/  WATCH OUT FOR THE BACK TICKS
   handleDelete(workoutId, arrayIndex, currentArray) {
     console.log('this is delete', workoutId, arrayIndex, currentArray)
-    fetch(`http://localhost:3000/workouts/${workoutId}`, {
+    fetch(`https://secure-garden-25756.herokuapp.com/${workoutId}`, {
       method: 'DELETE'
     })
     .then(data => {
