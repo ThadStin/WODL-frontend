@@ -67,7 +67,8 @@ clearForm = () => {
   render () {
     return (
       <div className="form" onSubmit={this.handleSubmit}>
-        <button className="add" onClick={this.toggleForm}>Add Workout</button>
+        <button type="button" className="btn btn-secondary" id="add"
+        onClick={this.toggleForm}>Add Workout</button>
         {this.state.showForm === true
         ?
         <form>
@@ -128,7 +129,7 @@ clearForm = () => {
             value={this.state.hero_wod}
             id='hero_wod'
           /><span>HERO WOD</span>
-          <button type="submit" className="submit-button">SUBMIT WORKOUT</button>
+          <button type="submit" className="btn btn-secondary">SUBMIT WORKOUT</button>
         </form>
         : <span></span>
       }
@@ -141,6 +142,8 @@ clearForm = () => {
 
 // export the class
 export default Form
+
+// className="submit-button"
 // check={this.state.hero_wod}
 // <input
 //   type='checkbox'

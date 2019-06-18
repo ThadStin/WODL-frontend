@@ -15,7 +15,7 @@ textarea {
   /* height: 100px;
   width: 250px; */
   resize: none;
-  background-color: #d3d9e2;
+  background-color: #d9dce0;
   color: black;
   border: none;
   border-bottom: 2px solid #FD7837;
@@ -26,11 +26,11 @@ textarea {
 }
 
 input[type=text] {
- background-color: #d3d9e2;
+ background-color: #d9dce0;
  color: black;
  border: none;
  border-bottom: 2px solid #FD7837;
- padding: 12px 20px;
+ padding: 5px 10px;
  margin: 1%;
  font-weight: bold;
 }
@@ -40,11 +40,11 @@ input[type=text] {
   width: 20px;
 }
 
-button{
+/* button{
   color: white;
   margin: 1%;
   font-weight: bold;
-}
+} */
 
 input {
   margin: 1%;
@@ -66,10 +66,14 @@ ul {
   text-align: center;
 }
 
-.add {
-  margin-left: 80%
+#add {
+  margin-left: 85%
 }
 
 .form {
   text-align: center;
+}
+
+p {
+  color: white;
 }

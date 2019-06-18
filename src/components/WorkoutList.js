@@ -5,20 +5,20 @@ class WorkoutList extends Component {
   render () {
     return (
 
-        <table className='u-full-width'>
-          <thead>
+        <table id="datatable" className="table table-dark" cellSpacing="0" width="100%">
+          <thead id="datatable" className="table table-dark">
             <tr>
-              <th> Workout: </th>
-              <th> Rounds: </th>
-              <th> Reps: </th>
-              <th> Weight: </th>
-              <th> Time: </th>
-              <th> Date: </th>
+              <th scope="col"> Workout: </th>
+              <th scope="col"> Rounds: </th>
+              <th scope="col"> Reps: </th>
+              <th scope="col"> Weight: </th>
+              <th scope="col"> Time: </th>
+              <th scope="col"> Date: </th>
 
-              <th> Comments: </th>
+              <th > Comments: </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="datatable" className="table table-dark">
         { this.props.currentView === 'allWorkouts'
           ? <React.Fragment>
             { this.props.allWorkouts.map((workout, index) => {

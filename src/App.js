@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentView: 'heroWODS', //vs heroWODS
+      currentView: 'heroWODS', //vs allWorkouts
       allWorkouts: [],
       heroWODS:[]
     }
@@ -111,8 +111,14 @@ class App extends Component {
       return createdWorkout.json()
     })
     .then(jData => {
-      this.updateArray(jData, 'allWorkouts')
-      this.handleView('allWorkouts')
+      if(this.state.hero_wod === true) {
+        this.updateArray(jData, 'heroWODS')
+      }  else {
+          this.updateArray(jData, 'allWorkouts')
+      } //doesn't  work.  still pushes everything to herowod
+      // this.sortWorkouts(jData)
+      // this.updateArray(jData, 'heroWODS')  THIS ONE!!
+      // this.handleView('allWorkouts')
     })
     .catch(err => console.log(err))
   }
@@ -142,7 +148,7 @@ class App extends Component {
         <p>log your wod</p>
         <Form
          handleCreateWorkout={this.handleCreateWorkout}
-         
+
          />
          <Header
          currentView={this.state.currentView}
