@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   fetchWorkouts() {
-    fetch('https://secure-garden-25756.herokuapp.com/')
+    fetch('https://wodl.herokuapp.com/')
       .then(data => data.json())
       .then(jData => {
         this.sortWorkouts(jData)
@@ -60,7 +60,7 @@ class App extends Component {
 //   'http://localhost:3000/workouts/'
   handleCheck(workout, arrayIndex, currentArray) {
     workout.heroWODS = !workout.heroWODS
-    fetch('https://secure-garden-25756.herokuapp.com/' + workout.id, {
+    fetch('https://wodl.herokuapp.com/' + workout.id, {
       body:JSON.stringify(workout),
       method: 'PUT',
       headers: {
@@ -99,7 +99,7 @@ class App extends Component {
   }
 //  'http://localhost:3000/workouts/'
   handleCreateWorkout(workout) {
-    fetch('https://secure-garden-25756.herokuapp.com/', {
+    fetch('https://wodl.herokuapp.com/', {
       body: JSON.stringify(workout),
       method: 'POST',
       headers: {
@@ -126,7 +126,7 @@ class App extends Component {
   //delete  http://localhost:3000/workouts/  WATCH OUT FOR THE BACK TICKS
   handleDelete(workoutId, arrayIndex, currentArray) {
     console.log('this is delete', workoutId, arrayIndex, currentArray)
-    fetch(`https://secure-garden-25756.herokuapp.com/${workoutId}`, {
+    fetch(`https://wodl.herokuapp.com/${workoutId}`, {
       method: 'DELETE'
     })
     .then(data => {
