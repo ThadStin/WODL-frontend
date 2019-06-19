@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import Workout from './Workout'
-
+// class="th-sm" -- possible th class scope="col"   thead>id="datatable" className="table table-dark"
 class WorkoutList extends Component {
   render () {
     return (
 
-        <table id="datatable" className="table table-dark" cellSpacing="0" width="100%">
-          <thead id="datatable" className="table table-dark">
+        <table id="datatable" className="table table-sm table-dark" cellSpacing="0" width="100%">
+          <thead>
             <tr>
-              <th scope="col"> Workout: </th>
-              <th scope="col"> Rounds: </th>
-              <th scope="col"> Reps: </th>
-              <th scope="col"> Weight: </th>
-              <th scope="col"> Time: </th>
-              <th scope="col"> Date: </th>
-
-              <th > Comments: </th>
+              <th scope="row"> Workout: </th>
+              <th scope="row"> Rounds: </th>
+              <th scope="row"> Reps: </th>
+              <th scope="row"> Weight: </th>
+              <th scope="row"> Time: </th>
+              <th scope="row"> Date: </th>
+              <th scope="row"> Comments: </th>
             </tr>
           </thead>
-          <tbody id="datatable" className="table table-dark">
+          <tbody  id="datatable" className="table table-sm table-dark">
         { this.props.currentView === 'allWorkouts'
           ? <React.Fragment>
             { this.props.allWorkouts.map((workout, index) => {

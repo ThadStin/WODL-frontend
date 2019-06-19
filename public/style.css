@@ -9,6 +9,7 @@ h1 {
   margin-top: 2%;
   margin-bottom: 0px;
   font-weight: bold;
+  font-size: 3em;
 }
 
 textarea {
@@ -60,6 +61,8 @@ table {
 
 ul {
   list-style: none;
+  margin-right: 5%;
+  margin-top: 3%;
 }
 
 .header {
@@ -74,6 +77,27 @@ ul {
   text-align: center;
 }
 
-p {
+
+/* datatable styling override */
+label {
   color: white;
 }
+
+#datatable_info {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+
+/* p {
+  color: white;
+} */
+
+/* @media only screen and (max-width: 767px) {
+  [class*="container"] {
+    margin: 0;
+  }
+} */

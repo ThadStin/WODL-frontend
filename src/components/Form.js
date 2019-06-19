@@ -128,7 +128,7 @@ clearForm = () => {
             type='checkbox'
             placeholder="hero_wod"
             onChange={this.handleChange}
-            form={this.state.hero_wod}
+            checked={this.state.hero_wod}
             id='hero_wod'
           /><span>HERO WOD</span>
           <button type="submit" className="btn btn-secondary">SUBMIT WORKOUT</button>
@@ -144,7 +144,7 @@ clearForm = () => {
 
 // export the class
 export default Form
-
+// form ----possible value for checkbox
 // className="submit-button"
 // check={this.state.hero_wod}
 // <input

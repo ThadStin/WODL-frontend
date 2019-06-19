@@ -41,7 +41,7 @@ class App extends Component {
   sortWorkouts(workouts) {
     let allWorkouts = []
     let heroWODS = []
-    workouts.forEach( workout => {
+    workouts.forEach(workout => {
       if (workout.hero_wod) {
         heroWODS.push(workout)
       } else {
@@ -112,13 +112,13 @@ class App extends Component {
       return createdWorkout.json()
     })
     .then(jData => {
-      // if(this.state.hero_wod === true) {
-      //   this.updateArray(jData, 'heroWODS')
-      // }  else {
-      //     this.updateArray(jData, 'allWorkouts')
-      // } //doesn't  work.  still pushes everything to herowod
-      this.sortWorkouts(jData)
-      this.updateArray(jData, 'heroWODS')  //THIS ONE!!
+      if(this.state.hero_wod === true) {
+        this.updateArray(jData, 'heroWODS')
+      }  else {
+          this.updateArray(jData, 'allWorkouts')
+      } // this one seems to be wroking
+      // this.sortWorkouts(jData)
+      // this.updateArray(jData, 'heroWODS')
       // this.handleView('allWorkouts')
     })
     .catch(err => console.log(err))
