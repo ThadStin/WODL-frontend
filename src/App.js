@@ -31,13 +31,13 @@ class App extends Component {
   }
 
   fetchWorkouts() {
-    fetch('http://localhost:3000/workouts/')
+    fetch('https://secure-garden-25756.herokuapp.com/workouts')
       .then(data => data.json())
       .then(jData => {
         this.sortWorkouts(jData)
     })
   }
-  //   ''https://wodl.herokuapp.com/
+  //   ''https://wodl.herokuapp.com/  http://localhost:3000/workouts/
   sortWorkouts(workouts) {
     let allWorkouts = []
     let heroWODS = []
@@ -57,10 +57,10 @@ class App extends Component {
       heroWODS: wods
     })
   }
-//   'https://wodl.herokuapp.com/'
+//   'https://wodl.herokuapp.com/'  http://localhost:3000/workouts/
   handleCheck(workout, arrayIndex, currentArray) {
     workout.heroWODS = !workout.heroWODS
-    fetch('http://localhost:3000/workouts/' + workout.id, {
+    fetch('https://secure-garden-25756.herokuapp.com/' + workout.id, {
       body:JSON.stringify(workout),
       method: 'PUT',
       headers: {
@@ -97,9 +97,10 @@ class App extends Component {
       }
     })
   }
-//  'https://wodl.herokuapp.com/'
+//  'https://wodl.herokuapp.com/'http://localhost:3000/workouts/
   handleCreateWorkout(workout) {
-    fetch('http://localhost:3000/workouts/', {
+    console.log(workout);
+    fetch('https://secure-garden-25756.herokuapp.com/workouts', {
       body: JSON.stringify(workout),
       method: 'POST',
       headers: {
@@ -111,22 +112,22 @@ class App extends Component {
       return createdWorkout.json()
     })
     .then(jData => {
-      if(this.state.hero_wod === true) {
-        this.updateArray(jData, 'heroWODS')
-      }  else {
-          this.updateArray(jData, 'allWorkouts')
-      } //doesn't  work.  still pushes everything to herowod
-      // this.sortWorkouts(jData)
-      // this.updateArray(jData, 'heroWODS')  THIS ONE!!
+      // if(this.state.hero_wod === true) {
+      //   this.updateArray(jData, 'heroWODS')
+      // }  else {
+      //     this.updateArray(jData, 'allWorkouts')
+      // } //doesn't  work.  still pushes everything to herowod
+      this.sortWorkouts(jData)
+      this.updateArray(jData, 'heroWODS')  //THIS ONE!!
       // this.handleView('allWorkouts')
     })
     .catch(err => console.log(err))
   }
 
-  //delete    https://wodl.herokuapp.com/ WATCH OUT FOR THE BACK TICKS
+  //delete    https://wodl.herokuapp.com/   http://localhost:3000/workouts/  WATCH OUT FOR THE BACK TICKS
   handleDelete(workoutId, arrayIndex, currentArray) {
     console.log('this is delete', workoutId, arrayIndex, currentArray)
-    fetch(`http://localhost:3000/workouts/${workoutId}`, {
+    fetch(`https://secure-garden-25756.herokuapp.com/workouts/${workoutId}`, {
       method: 'DELETE'
     })
     .then(data => {

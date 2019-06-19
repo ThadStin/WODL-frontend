@@ -23,6 +23,7 @@ class Form extends Component {
 
 // handle change
 handleChange = (e) => {
+  console.log(this.state.hero_wod);
   this.setState({
     [e.target.id]: e.target.value
   })
@@ -126,7 +127,7 @@ clearForm = () => {
             type='checkbox'
             placeholder="hero_wod"
             onChange={this.handleChange}
-            value={this.state.hero_wod}
+            form={this.state.hero_wod}
             id='hero_wod'
           /><span>HERO WOD</span>
           <button type="submit" className="btn btn-secondary">SUBMIT WORKOUT</button>
