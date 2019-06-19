@@ -18,7 +18,7 @@ class App extends Component {
     this.sortWorkouts = this.sortWorkouts.bind(this)
     this.setWorkouts = this.setWorkouts.bind(this)
     this.handleCreateWorkout = this.handleCreateWorkout.bind(this)
-    this.handleCheck = this.handleCheck.bind(this)
+    // this.handleCheck = this.handleCheck.bind(this)
     this.removeFromArray = this.removeFromArray.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.updateArray = this.updateArray.bind(this)
@@ -31,13 +31,13 @@ class App extends Component {
   }
 
   fetchWorkouts() {
-    fetch('http://localhost:3000/workouts/')
+    fetch('https://secure-garden-25756.herokuapp.com/workouts')
       .then(data => data.json())
       .then(jData => {
         this.sortWorkouts(jData)
     })
   }
-  //   ''https://wodl.herokuapp.com/  https://secure-garden-25756.herokuapp.com/workouts
+  //   ''https://wodl.herokuapp.com/  http://localhost:3000/workouts/
   sortWorkouts(workouts) {
     let allWorkouts = []
     let heroWODS = []
@@ -58,27 +58,27 @@ class App extends Component {
     })
   }
 //   'https://wodl.herokuapp.com/'  https://secure-garden-25756.herokuapp.com/
-  handleCheck(workout, arrayIndex, currentArray) {
-    workout.heroWODS = !workout.heroWODS
-    fetch('http://localhost:3000/workouts/' + workout.id, {
-      body:JSON.stringify(workout),
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then (updatedWorkout => updatedWorkout.json())
-    .then(jData => {
-      this.removeFromArray(currentArray, arrayIndex)
-        if(currentArray === 'allWorkouts') {
-          this.updateArray(jData, 'heroWODS')
-        }  else {
-            this.updateArray(jData, 'allWorkouts')
-        }
-    })
-    .catch(err => console.log('this is error from handleCheck', err))
-  }
+  // handleCheck(workout, arrayIndex, currentArray) {
+  //   workout.heroWODS = !workout.heroWODS
+  //   fetch('http://localhost:3000/workouts/' + workout.id, {
+  //     body:JSON.stringify(workout),
+  //     method: 'PUT',
+  //     headers: {
+  //       'Accept': 'application/json, text/plain, */*',
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //   .then (updatedWorkout => updatedWorkout.json())
+  //   .then(jData => {
+  //     this.removeFromArray(currentArray, arrayIndex)
+  //       if(currentArray === 'allWorkouts') {
+  //         this.updateArray(jData, 'heroWODS')
+  //       }  else {
+  //           this.updateArray(jData, 'allWorkouts')
+  //       }
+  //   })
+  //   .catch(err => console.log('this is error from handleCheck', err))
+  // }
 
   removeFromArray(array, arrayIndex) {
     this.setState(prevState => {
@@ -97,10 +97,10 @@ class App extends Component {
       }
     })
   }
-//  'https://wodl.herokuapp.com/'  https://secure-garden-25756.herokuapp.com/workouts
+//  'https://wodl.herokuapp.com/' http://localhost:3000/workouts/
   handleCreateWorkout(workout) {
     console.log(workout);
-    fetch('http://localhost:3000/workouts/', {
+    fetch('https://secure-garden-25756.herokuapp.com/workouts', {
       body: JSON.stringify(workout),
       method: 'POST',
       headers: {
@@ -124,10 +124,10 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  //delete    https://wodl.herokuapp.com/   https://secure-garden-25756.herokuapp.com/workouts/  WATCH OUT FOR THE BACK TICKS
+  //delete    https://wodl.herokuapp.com/  http://localhost:3000/workouts/   WATCH OUT FOR THE BACK TICKS
   handleDelete(workoutId, arrayIndex, currentArray) {
     console.log('this is delete', workoutId, arrayIndex, currentArray)
-    fetch(`http://localhost:3000/workouts/${workoutId}`, {
+    fetch(`https://secure-garden-25756.herokuapp.com/workouts/${workoutId}`, {
       method: 'DELETE'
     })
     .then(data => {
@@ -162,7 +162,7 @@ class App extends Component {
         handleView={this.handleView}
         allWorkouts={this.state.allWorkouts}
         heroWODS={this.state.heroWODS}
-        handleCheck={this.handleCheck}
+        // handleCheck={this.handleCheck}
         handleDelete={this.handleDelete}
        />
       </div>

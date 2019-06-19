@@ -8,13 +8,13 @@ class WorkoutList extends Component {
         <table id="datatable" className="table table-sm table-dark" cellSpacing="0" width="100%">
           <thead>
             <tr>
-              <th scope="row"> Workout: </th>
-              <th scope="row"> Rounds: </th>
-              <th scope="row"> Reps: </th>
-              <th scope="row"> Weight: </th>
-              <th scope="row"> Time: </th>
-              <th scope="row"> Date: </th>
-              <th scope="row"> Comments: </th>
+              <th scope="col"> Workout: </th>
+              <th scope="col"> Rounds: </th>
+              <th scope="col"> Reps: </th>
+              <th scope="col"> Weight: </th>
+              <th scope="col"> Time: </th>
+              <th scope="col"> Date: </th>
+              <th scope="col"> Comments: </th>
             </tr>
           </thead>
           <tbody  id="datatable" className="table table-sm table-dark">
@@ -25,7 +25,7 @@ class WorkoutList extends Component {
                   <Workout
                     key={index}
                     workout={workout}
-                    handleCheck={this.props.handleCheck}
+                    // handleCheck={this.props.handleCheck}
                     arrayIndex={index}
                     currentArray='allWorkouts'
                     handleDelete={this.props.handleDelete}
@@ -39,7 +39,7 @@ class WorkoutList extends Component {
                 <Workout
                   key={index}
                   workout={workout}
-                  handleCheck={this.props.handleCheck}
+                  // handleCheck={this.props.handleCheck}
                   arrayIndex={index}
                   currentArray='heroWODS'
                   handleDelete={this.props.handleDelete}

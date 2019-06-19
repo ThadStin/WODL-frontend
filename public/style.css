@@ -91,7 +91,15 @@ a {
   color: white;
 }
 
+.sorting_asc {
+  /* 501px */
+  width: 125px;
+}
 
+.sorting {
+  /* 64px */
+  width: 125px;
+}
 /* p {
   color: white;
 } */
