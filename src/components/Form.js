@@ -61,11 +61,12 @@ clearForm = () => {
     date: '',
     comments: '',
     // rx: false,
-    hero_wod: false
+    hero_wod: undefined
   })
 }
 
   render () {
+    console.log(this.state.hero_wod);
     return (
       <div className="form" onSubmit={this.handleSubmit}>
         <button type="button" className="btn btn-secondary" id="add"
