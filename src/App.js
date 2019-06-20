@@ -117,9 +117,9 @@ class App extends Component {
       }  else {
           this.updateArray(jData, 'allWorkouts')
       } // this one seems to be wroking
-      this.setWorkouts()
+      // this.setWorkouts()
       // this.updateArray(jData, )
-      // this.sortWorkouts(jData)
+      this.sortWorkouts(jData)
       // this.handleView(workout)
     }) // doesn't seem to matter what order I use them.  they pretty mush all work the same
     .catch(err => console.log(err))
@@ -163,8 +163,10 @@ class App extends Component {
         handleView={this.handleView}
         allWorkouts={this.state.allWorkouts}
         heroWODS={this.state.heroWODS}
-        // handleCheck={this.handleCheck}
         handleDelete={this.handleDelete}
+        // handleCheck={this.handleCheck}
+
+
        />
       </div>
     );
