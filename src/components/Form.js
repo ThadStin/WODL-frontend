@@ -61,7 +61,7 @@ clearForm = () => {
     date: '',
     comments: '',
     // rx: false,
-    hero_wod: undefined
+    hero_wod: false
   })
 }
 
@@ -131,7 +131,7 @@ clearForm = () => {
             checked={this.state.hero_wod}
             id='hero_wod'
           /><span>HERO WOD</span>
-          <button type="submit" className="btn btn-secondary">SUBMIT WORKOUT</button>
+          <button type="submit" className="btn btn-secondary" id="sumbit">SUBMIT WORKOUT</button>
         </form>
         : <span></span>
       }

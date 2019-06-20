@@ -6,13 +6,7 @@ class Workout extends Component {
       <React.Fragment>
 
       <tr>
-        <td className="table table-sm table-dark">{this.props.workout.name}</td>
-        <td className="table table-sm table-dark">{this.props.workout.rounds}</td>
-        <td className="table table-sm table-dark">{this.props.workout.reps}</td>
-        <td className="table table-sm table-dark">{this.props.workout.weight}</td>
-        <td className="table table-sm table-dark">{this.props.workout.time}</td>
-        <td className="table table-sm table-dark">{this.props.workout.rx}</td>
-        <td className="table table-sm table-dark">{this.props.workout.comments}
+        <td className="table table-sm table-dark">{this.props.workout.name}
           <br></br>
           <i
            className="delete far fa-trash-alt"
@@ -20,6 +14,12 @@ class Workout extends Component {
               {this.props.handleDelete(this.props.workout.id, this.props.arrayIndex, this.props.currentArray)}}
           ></i>
         </td>
+        <td className="table table-sm table-dark">{this.props.workout.rounds}</td>
+        <td className="table table-sm table-dark">{this.props.workout.reps}</td>
+        <td className="table table-sm table-dark">{this.props.workout.weight}</td>
+        <td className="table table-sm table-dark">{this.props.workout.time}</td>
+        <td className="table table-sm table-dark">{this.props.workout.date}</td>
+        <td className="table table-sm table-dark">{this.props.workout.comments}</td>
       </tr>
 
 
@@ -33,6 +33,7 @@ class Workout extends Component {
 
 // export the class
 export default Workout
+// <td className="table table-sm table-dark">{this.props.workout.rx}</td>
 // <div className="task-actions">
 //   { this.props.workout.allWorkouts
 //     ? <i

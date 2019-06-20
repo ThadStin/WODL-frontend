@@ -5,19 +5,19 @@ class WorkoutList extends Component {
   render () {
     return (
 
-        <table id="datatable" className="table table-sm table-dark" cellSpacing="0" width="100%">
+        <table id="datatable" className="table table-sm table-dark">
           <thead>
             <tr>
-              <th scope="col"> Workout: </th>
-              <th scope="col"> Rounds: </th>
-              <th scope="col"> Reps: </th>
-              <th scope="col"> Weight: </th>
-              <th scope="col"> Time: </th>
-              <th scope="col"> Date: </th>
-              <th scope="col"> Comments: </th>
+              <th> Workout: </th>
+              <th> Rounds: </th>
+              <th> Reps: </th>
+              <th> Weight: </th>
+              <th> Time: </th>
+              <th> Date: </th>
+              <th> Comments: </th>
             </tr>
           </thead>
-          <tbody  id="datatable" className="table table-sm table-dark">
+          <tbody>
         { this.props.currentView === 'allWorkouts'
           ? <React.Fragment>
             { this.props.allWorkouts.map((workout, index) => {
@@ -59,6 +59,7 @@ class WorkoutList extends Component {
 export default WorkoutList
 
 ///////////////////////////////////////////////////////////////////////////
+// id="datatable" className="table table-sm table-dark" cellSpacing="0" width="100%"
 // <th> RX: </th>
 // <div className="workout-list">
 // </div>

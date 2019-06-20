@@ -99,7 +99,7 @@ class App extends Component {
   }
 //  'https://wodl.herokuapp.com/' http://localhost:3000/workouts/
   handleCreateWorkout(workout) {
-    console.log(workout);
+    // console.log(workout);
     fetch('https://secure-garden-25756.herokuapp.com/workouts', {
       body: JSON.stringify(workout),
       method: 'POST',
@@ -117,10 +117,11 @@ class App extends Component {
       }  else {
           this.updateArray(jData, 'allWorkouts')
       } // this one seems to be wroking
+      this.setWorkouts()
+      // this.updateArray(jData, )
       // this.sortWorkouts(jData)
-      // this.updateArray(jData, 'heroWODS')
-      // this.handleView('allWorkouts')
-    })
+      // this.handleView(workout)
+    }) // doesn't seem to matter what order I use them.  they pretty mush all work the same
     .catch(err => console.log(err))
   }
 
@@ -138,7 +139,7 @@ class App extends Component {
 
 
   componentDidMount() {
-  	this.fetchWorkouts()
+  	this.fetchWorkouts();
   }
 
   render() {
