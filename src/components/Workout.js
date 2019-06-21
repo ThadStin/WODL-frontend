@@ -27,9 +27,6 @@ class Workout extends Component {
     )
   }
 }
-// create the class and have it render the following:
-
-
 
 // export the class
 export default Workout

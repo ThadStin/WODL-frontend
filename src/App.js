@@ -11,19 +11,29 @@ class App extends Component {
     this.state = {
       currentView: 'allWorkouts', //vs heroWODS
       allWorkouts: [],
-      heroWODS:[]
+      heroWODS:[],
+       // NEW FOR SORT
     }
     this.handleView = this.handleView.bind(this)
     this.fetchWorkouts = this.fetchWorkouts.bind(this)
     this.sortWorkouts = this.sortWorkouts.bind(this)
     this.setWorkouts = this.setWorkouts.bind(this)
     this.handleCreateWorkout = this.handleCreateWorkout.bind(this)
-    // this.handleCheck = this.handleCheck.bind(this)
+    this.handleCheck = this.handleCheck.bind(this)
     this.removeFromArray = this.removeFromArray.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.updateArray = this.updateArray.bind(this)
+    // this.sortBy = this.sortBy.bind(this)
   }
   // ---------- METHODS ------------
+
+  // sortBy(key) {
+  //   this.setState({
+  //     allWorkouts: allWorkouts.sort( (a, b) => a[key] > b[key] )
+  //     // heroWODS: heroWODS
+  //   })
+  // }
+
   handleView(view) {
     this.setState({
       currentView: view
@@ -39,8 +49,8 @@ class App extends Component {
   }
   //   ''https://wodl.herokuapp.com/  http://localhost:3000/workouts/
   sortWorkouts(workouts) {
-    let allWorkouts = []
     let heroWODS = []
+    let allWorkouts = []
     workouts.forEach(workout => {
       if (workout.hero_wod) {
         heroWODS.push(workout)
@@ -57,28 +67,28 @@ class App extends Component {
       heroWODS: wods
     })
   }
-//   'https://wodl.herokuapp.com/'  https://secure-garden-25756.herokuapp.com/
-  // handleCheck(workout, arrayIndex, currentArray) {
-  //   workout.heroWODS = !workout.heroWODS
-  //   fetch('http://localhost:3000/workouts/' + workout.id, {
-  //     body:JSON.stringify(workout),
-  //     method: 'PUT',
-  //     headers: {
-  //       'Accept': 'application/json, text/plain, */*',
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //   .then (updatedWorkout => updatedWorkout.json())
-  //   .then(jData => {
-  //     this.removeFromArray(currentArray, arrayIndex)
-  //       if(currentArray === 'allWorkouts') {
-  //         this.updateArray(jData, 'heroWODS')
-  //       }  else {
-  //           this.updateArray(jData, 'allWorkouts')
-  //       }
-  //   })
-  //   .catch(err => console.log('this is error from handleCheck', err))
-  // }
+  //'https://wodl.herokuapp.com/'  https://secure-garden-25756.herokuapp.com/
+  handleCheck(workout, arrayIndex, currentArray) {
+    workout.heroWODS = !workout.heroWODS
+    fetch('http://localhost:3000/workouts/' + workout.id, {
+      body:JSON.stringify(workout),
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then (updatedWorkout => updatedWorkout.json())
+    .then(jData => {
+      this.removeFromArray(currentArray, arrayIndex)
+        if(currentArray === 'allWorkouts') {
+          this.updateArray(jData, 'heroWODS')
+        }  else {
+            this.updateArray(jData, 'allWorkouts')
+        }
+    })
+    .catch(err => console.log('this is error from handleCheck', err))
+  }
 
   removeFromArray(array, arrayIndex) {
     this.setState(prevState => {
@@ -112,11 +122,11 @@ class App extends Component {
       return createdWorkout.json()
     })
     .then(jData => {
-      if(this.state.hero_wod === true) {
-        this.updateArray(jData, 'heroWODS')
+      if(this.state.hero_wod === false) {
+        this.updateArray(jData, 'allWorkouts')
       }  else {
-          this.updateArray(jData, 'allWorkouts')
-      } // this one seems to be wroking
+          this.updateArray(jData, 'heroWODS')
+      } //
       // this.setWorkouts()
       // this.updateArray(jData, )
       this.sortWorkouts(jData)
@@ -150,6 +160,7 @@ class App extends Component {
         <p>log your wod</p>
         <Form
          handleCreateWorkout={this.handleCreateWorkout}
+         // handleCheck={this.handleCheck}
 
          />
          <Header
@@ -164,9 +175,9 @@ class App extends Component {
         allWorkouts={this.state.allWorkouts}
         heroWODS={this.state.heroWODS}
         handleDelete={this.handleDelete}
-        // handleCheck={this.handleCheck}
-
-
+        handleCheck={this.handleCheck}
+        workouts={this.state.workouts}
+        sortBy={this.sortBy}
        />
       </div>
     );

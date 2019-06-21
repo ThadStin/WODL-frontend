@@ -3,6 +3,24 @@ import Workout from './Workout.js'
 
 
 class WorkoutList extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.setState = {
+  //     workouts: workouts
+  //   }
+  //   this.sortBy = this.sortBy.bind(this)
+  // }
+  // sortBy(key) {
+  //   this.setState({
+  //     workouts: workouts.sort( (a, b) => a[key] > b[key] )
+  //     // heroWODS: heroWODS
+  //   })
+  // }
+
+
+  // <button
+  //   onClick={() => this.state.sortBy('date')}
+  // ></button>
   render () {
     return (
 
@@ -14,7 +32,11 @@ class WorkoutList extends Component {
               <th> Reps: </th>
               <th> Weight: </th>
               <th> Time: </th>
-              <th> Date: </th>
+              <th>
+
+                  Date:
+
+              </th>
               <th> Comments: </th>
             </tr>
           </thead>
@@ -26,7 +48,7 @@ class WorkoutList extends Component {
                   <Workout
                     key={index}
                     workout={workout}
-                    // handleCheck={this.props.handleCheck}
+                    handleCheck={this.props.handleCheck}
                     arrayIndex={index}
                     currentArray='allWorkouts'
                     handleDelete={this.props.handleDelete}
@@ -40,7 +62,7 @@ class WorkoutList extends Component {
                 <Workout
                   key={index}
                   workout={workout}
-                  // handleCheck={this.props.handleCheck}
+                  handleCheck={this.props.handleCheck}
                   arrayIndex={index}
                   currentArray='heroWODS'
                   handleDelete={this.props.handleDelete}
