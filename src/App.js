@@ -156,7 +156,7 @@ class App extends Component {
     // console.log('this is state', this.state);
     return (
       <div className="container">
-        <h1>W.O.D.L.</h1>
+        <h1 className="wodl">W.O.D.L.</h1>
         <p>log your wod</p>
         <Form
          handleCreateWorkout={this.handleCreateWorkout}

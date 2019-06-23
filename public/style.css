@@ -9,9 +9,11 @@ h1 {
   margin-top: 2%;
   margin-bottom: 0px;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2em;
 }
-
+.wodl {
+  font-size: 4em;
+}
 textarea {
   /* height: 100px;
   width: 250px; */

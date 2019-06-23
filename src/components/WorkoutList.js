@@ -6,14 +6,16 @@ class WorkoutList extends Component {
   // constructor(props) {
   //   super(props)
   //   this.setState = {
-  //     workouts: workouts
+  //     workouts: workouts,
+  //       heroWODS: heroWODS,
+  //       allWOrkouts: allWorkouts
   //   }
   //   this.sortBy = this.sortBy.bind(this)
   // }
   // sortBy(key) {
   //   this.setState({
   //     workouts: workouts.sort( (a, b) => a[key] > b[key] )
-  //     // heroWODS: heroWODS
+  //
   //   })
   // }
 
@@ -22,6 +24,7 @@ class WorkoutList extends Component {
   //   onClick={() => this.state.sortBy('date')}
   // ></button>
   render () {
+    // console.log(workouts);
     return (
 
         <table id="datatable" className="table table-sm table-dark">
