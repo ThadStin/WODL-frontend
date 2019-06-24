@@ -12,7 +12,7 @@ class App extends Component {
       currentView: 'allWorkouts', //vs heroWODS
       allWorkouts: [],
       heroWODS:[],
-       // NEW FOR SORT
+       // workouts: [allWorkouts] + [heroWODS]  //NEW FOR SORT
     }
     this.handleView = this.handleView.bind(this)
     this.fetchWorkouts = this.fetchWorkouts.bind(this)

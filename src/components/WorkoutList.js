@@ -8,7 +8,7 @@ class WorkoutList extends Component {
   //   this.setState = {
   //     workouts: workouts,
   //       heroWODS: heroWODS,
-  //       allWOrkouts: allWorkouts
+  //       allWorkouts: allWorkouts
   //   }
   //   this.sortBy = this.sortBy.bind(this)
   // }
