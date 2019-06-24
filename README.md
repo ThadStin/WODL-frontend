@@ -1,8 +1,8 @@
 # W.O.D.L. - log your wod
 
-- github repo:
+- github repos:
 https://github.com/ThadStin/WODL-api
-https://github.com/ThadStin/wodl-frontend
+  - https://github.com/ThadStin/wodl-frontend
 
 - live link:
 https://wodl.herokuapp.com/
